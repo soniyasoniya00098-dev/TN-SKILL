@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        ComicCraft - AI Comic Creator
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body class="home-bg">
+
+
+<main class="container hero">
+
+
+    <section class="card form-card">
+
+
+        <div class="brand">
+            🎨 ComicCraft
+        </div>
+
+
+        <h1>
+            Create Your AI Comic
+        </h1>
+
+
+        <p class="subtitle">
+
+            Turn one idea into a five-panel
+            comic story with narration,
+            dialogue and illustrations.
+
+        </p>
+
+
+        {% if error %}
+
+        <div class="alert">
+
+            {{ error }}
+
+        </div>
+
+        {% endif %}
+
+
+        <form
+            method="post"
+            action="/generate"
+            class="comic-form"
+        >
+
+
+            <!-- STORY PROMPT -->
+
+            <label>
+
+                Story Prompt
+
+                <textarea
+                    name="story_prompt"
+                    rows="4"
+                    required
+                    placeholder="A brave fox discovers a hidden door in an enchanted forest..."
+                ></textarea>
+
+            </label>
+
+
+            <!-- CHARACTER -->
+
+            <label>
+
+                Main Character Name
+
+                <input
+                    type="text"
+                    name="character_name"
+                    required
+                    placeholder="Luna"
+                >
+
+            </label>
+
+
+            <!-- SETTING -->
+
+            <label>
+
+                Setting
+
+                <select name="setting">
+
+                    <option>
+                        Enchanted Forest
+                    </option>
+
+                    <option>
+                        School
+                    </option>
+
+                    <option>
+                        Futuristic City
+                    </option>
+
+                    <option>
+                        Outer Space
+                    </option>
+
+                    <option>
+                        Underwater Kingdom
+                    </option>
+
+                    <option>
+                        Ancient Castle
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- TONE -->
+
+            <label>
+
+                Story Tone
+
+                <select name="tone">
+
+                    <option>
+                        Light-hearted
+                    </option>
+
+                    <option>
+                        Funny
+                    </option>
+
+                    <option>
+                        Dramatic
+                    </option>
+
+                    <option>
+                        Poetic
+                    </option>
+
+                    <option>
+                        Mysterious
+                    </option>
+
+                    <option>
+                        Adventurous
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- ART STYLE -->
+
+            <label>
+
+                Art Style
+
+                <select name="art_style">
+
+                    <option>
+                        Comic Book
+                    </option>
+
+                    <option>
+                        Anime
+                    </option>
+
+                    <option>
+                        Pixel Art
+                    </option>
+
+                    <option>
+                        Watercolor
+                    </option>
+
+                    <option>
+                        Realistic
+                    </option>
+
+                    <option>
+                        Fantasy Illustration
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- SUBMIT -->
+
+            <button
+                class="primary-btn"
+                type="submit"
+            >
+
+                ✨ Generate My Comic
+
+            </button>
+
+
+        </form>
+
+
+        <div class="tip">
+
+            <strong>
+                Tip:
+            </strong>
+
+            Be specific about the character,
+            goal, conflict and setting for
+            more cohesive panels.
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Your Comic - ComicCraft
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<main class="container preview">
+
+
+    <!-- TOP BAR -->
+
+    <div class="topbar">
+
+
+        <div class="brand">
+
+            🎨 ComicCraft
+
+        </div>
+
+
+        <a
+            class="secondary-btn"
+            href="/"
+        >
+
+            Create Another
+
+        </a>
+
+
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header class="preview-header">
+
+        <h1>
+
+            {{ character_name }}'s Comic
+
+        </h1>
+
+
+        <p>
+
+            Generated panel by panel
+            from your story idea.
+
+        </p>
+
+    </header>
+
+
+    <!-- PANELS -->
+
+    {% for panel in layout %}
+
+
+    <article class="panel card">
+
+
+        <div class="panel-title">
+
+            Panel {{ panel.panel_number }}
+
+            ·
+
+            {{ panel.title }}
+
+        </div>
+
+
+        <!-- IMAGE -->
+
+        <img
+            src="{{ panel.image_path }}"
+            alt="AI illustration for panel {{ panel.panel_number }}"
+            loading="lazy"
+        >
+
+
+        <!-- SCENE -->
+
+        <p class="scene">
+
+            {{ panel.scene_description }}
+
+        </p>
+
+
+        <!-- STORY TEXT -->
+
+        <div class="comic-text">
+
+
+            <p>
+
+                <strong>
+                    Caption:
+                </strong>
+
+                {{ panel.caption }}
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Narration:
+                </strong>
+
+                {{ panel.text }}
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Dialogue:
+                </strong>
+
+                {{ panel.dialogue }}
+
+            </p>
+
+
+        </div>
+
+
+        <!-- IMAGE PROMPT -->
+
+        <details>
+
+            <summary>
+                Image prompt reference
+            </summary>
+
+
+            <p>
+
+                {{ panel.image_prompt }}
+
+            </p>
+
+
+        </details>
+
+
+    </article>
+
+
+    {% endfor %}
+
+
+    <!-- DOWNLOAD -->
+
+    <div class="download-box card">
+
+
+        <h2>
+
+            Your comic is ready!
+
+        </h2>
+
+
+        <p>
+
+            Download the complete PDF
+            containing the panel artwork
+            and story text.
+
+        </p>
+
+
+        <a
+            class="primary-btn"
+            href="/download?pdf_path={{ pdf_url }}"
+            target="_blank"
+        >
+
+            📥 Download Your Comic as PDF
+
+        </a>
+
+
+    </div>
+
+
+</main>
+
+
+</body>
+
+</html>
